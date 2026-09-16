@@ -135,6 +135,7 @@ The parameter is available to the shell as:
 ```bash
 $NINJA_NAME
 ```
+<img width="1292" height="447" alt="image" src="https://github.com/user-attachments/assets/c4a225ae-9851-4ac1-a835-dba08e72dd4a" />
 
 ## 3. Build Step
 
@@ -161,6 +162,7 @@ the generated file will contain:
 ```text
 Garvit from DevOps Ninja
 ```
+<img width="1353" height="402" alt="image" src="https://github.com/user-attachments/assets/56ceb3bd-cf83-4559-8d54-9a96a6e7c43b" />
 
 ## 4. Archive the File
 
@@ -182,6 +184,7 @@ Set:
 Files to archive:
 ninja.txt
 ```
+<img width="1320" height="310" alt="image" src="https://github.com/user-attachments/assets/0032a1b9-2e08-447a-a0f0-8604f9d93e10" />
 
 This allows Job 2 to retrieve the file from Job 1.
 
@@ -229,6 +232,8 @@ Set:
 Artifacts to copy:
 ninja.txt
 ```
+<img width="1376" height="407" alt="image" src="https://github.com/user-attachments/assets/cb3da349-0db9-47ad-bf2d-59573d1d25b1" />
+
 
 ## 6. Install Nginx
 
@@ -293,6 +298,7 @@ Verify:
 ```bash
 ls -ld /var/www/html
 ```
+<img width="1225" height="95" alt="image" src="https://github.com/user-attachments/assets/3f73b8b2-8288-4f49-94bc-1164deeefdb1" />
 
 A permission test can be performed with:
 
@@ -321,6 +327,7 @@ cp ninja.txt /var/www/html/ninja.txt
 ```
 
 This copies the artifact into the Nginx web root.
+<img width="1286" height="310" alt="image" src="https://github.com/user-attachments/assets/814fa08a-9d05-453e-a56b-2f3edd33a626" />
 
 # Automatic Job Trigger
 
@@ -352,6 +359,7 @@ Projects to watch:
 Assignment1-Part2-Job1
 ```
 
+<img width="1112" height="466" alt="image" src="https://github.com/user-attachments/assets/6400e2ec-71d9-4e3e-ad98-03671d085a4d" />
 Configure the trigger so that Job 2 runs only when Job 1 completes successfully/stably.
 
 The resulting behavior is:
@@ -415,6 +423,7 @@ Build FAILURE
      v
 Email Notification
 ```
+<img width="1233" height="610" alt="image" src="https://github.com/user-attachments/assets/9fdb6541-3152-45ef-bc52-bc076136d266" />
 
 # Complete Workflow
 
