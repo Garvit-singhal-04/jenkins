@@ -401,10 +401,7 @@ Finished: SUCCESS
 
 ### Screenshot
 
-```markdown
 <img width="580" height="305" alt="image" src="https://github.com/user-attachments/assets/787cbb26-b46e-43f1-af79-7fa38ea4ca4e" />
-
-```
 
 ---
 
@@ -450,11 +447,9 @@ Check the GitHub repository and confirm that `jenkins-create-test` exists.
 
 ### Screenshot
 
-```markdown
+
 <img width="791" height="268" alt="image" src="https://github.com/user-attachments/assets/c293d06d-c143-42c5-adb1-9bf4ddaf629a" />
 <img width="1275" height="112" alt="image" src="https://github.com/user-attachments/assets/2c89594a-f514-4ed5-b581-ce4a824584d4" />
-
-```
 
 ---
 
@@ -485,11 +480,10 @@ Check the `main` branch on GitHub and confirm that the changes from the source b
 
 ### Screenshot
 
-```markdown
+
 <img width="1197" height="230" alt="image" src="https://github.com/user-attachments/assets/43be28f8-bec4-4222-9574-64c58d8eee76" />
 <img width="707" height="412" alt="image" src="https://github.com/user-attachments/assets/322d2dcb-769a-464f-bd70-25a210fc663c" />
 
-```
 
 ---
 
@@ -515,10 +509,10 @@ TARGET_BRANCH  = main
 
 ### Screenshot
 
-```markdown
+
 <img width="751" height="195" alt="image" src="https://github.com/user-attachments/assets/ed65d16e-996d-4285-a92f-6f486ceb1005" />
 
-```
+
 
 ---
 
@@ -542,10 +536,10 @@ Finished: SUCCESS
 
 ### Screenshot
 
-```markdown
+
 <img width="820" height="190" alt="image" src="https://github.com/user-attachments/assets/206055b5-c410-42f9-bd96-af9b3d26b047" />
 
-```
+
 
 ---
 
@@ -559,10 +553,9 @@ A Jenkins failure notification should appear in the configured Slack channel.
 
 ### Screenshot
 
-```markdown
 <img width="822" height="132" alt="image" src="https://github.com/user-attachments/assets/1a4e5642-0f39-4c4d-86e3-810bce37348a" />
 
-```
+
 
 ---
 
