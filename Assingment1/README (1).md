@@ -1,4 +1,4 @@
-<img width="1316" height="681" alt="image" src="https://github.com/user-attachments/assets/7af70f4b-afc1-49bb-9a95-92b2b03bddd9" /># Assignment 1 — Jenkins Git Operations
+# Assignment 1 — Jenkins Git Operations
 
 ## Overview
 
