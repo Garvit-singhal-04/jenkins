@@ -1,4 +1,4 @@
-# Assignment 1 — Jenkins Git Operations
+<img width="1316" height="681" alt="image" src="https://github.com/user-attachments/assets/7af70f4b-afc1-49bb-9a95-92b2b03bddd9" /># Assignment 1 — Jenkins Git Operations
 
 ## Overview
 
@@ -33,6 +33,8 @@ Manage Jenkins → System → Slack Notifications
 The Slack integration is used to notify the configured Slack channel when the Jenkins build fails.
 
 > Slack was configured globally, so no additional Slack server configuration is required inside the job.
+<img width="1791" height="443" alt="image" src="https://github.com/user-attachments/assets/6f2da12b-2924-4efc-a5c9-32c97715ffca" />
+
 
 ## 1.2 Gmail / Email Notification
 
@@ -45,6 +47,8 @@ Manage Jenkins → System → E-mail Notification
 Gmail SMTP was configured so Jenkins can send build notifications through the configured Gmail account.
 
 The email notification is used to notify the configured recipient when the Jenkins build fails.
+<img width="1685" height="621" alt="image" src="https://github.com/user-attachments/assets/77cf08f3-e37c-4de2-a3bf-f22127e4fa27" />
+
 
 ## 1.3 GitHub Credentials
 
@@ -67,6 +71,7 @@ GIT_PASSWORD
 ```
 
 The actual credential values are not included in this README.
+<img width="1595" height="247" alt="image" src="https://github.com/user-attachments/assets/7f2235bb-05fc-4fd4-b03c-c97005d30331" />
 
 ---
 
@@ -119,6 +124,7 @@ delete
 ```
 
 This parameter determines which Git operation Jenkins executes.
+<img width="1261" height="460" alt="image" src="https://github.com/user-attachments/assets/ef7654a5-d036-45e2-b2c9-30b0726f99d2" />
 
 ## 3.2 SOURCE_BRANCH
 
@@ -133,6 +139,7 @@ Name:
 ```text
 SOURCE_BRANCH
 ```
+<img width="1257" height="458" alt="image" src="https://github.com/user-attachments/assets/dcc53f18-ec9d-4b16-960d-e678778f8b28" />
 
 This parameter represents the source branch used by:
 
@@ -154,6 +161,7 @@ Name:
 ```text
 TARGET_BRANCH
 ```
+<img width="1250" height="437" alt="image" src="https://github.com/user-attachments/assets/b4049ced-bec5-4699-9a44-26f8dab8890e" />
 
 This parameter represents the target branch used by:
 
@@ -211,6 +219,7 @@ The Jenkins job builds from:
 Jenkins therefore checks out the `main` branch before executing the shell script.
 
 ---
+<img width="1316" height="681" alt="image" src="https://github.com/user-attachments/assets/8f749565-347e-4667-af29-ab95c205bf85" />
 
 # 5. Credential Binding
 
@@ -243,6 +252,7 @@ Credentials: GitHub credential
 ```
 
 These variables allow the shell script to authenticate when pushing changes to GitHub.
+<img width="1325" height="361" alt="image" src="https://github.com/user-attachments/assets/af90718a-c5a4-4f1f-b351-4b6562379a09" />
 
 ---
 
@@ -274,9 +284,10 @@ case "$OPERATION" in
         ;;
 
     rebase)
-        git checkout "$SOURCE_BRANCH"
         git fetch origin
+        git checkout -B "$SOURCE_BRANCH" "origin/$SOURCE_BRANCH"
         git rebase "origin/$TARGET_BRANCH"
+        git fetch origin "$SOURCE_BRANCH"
         git push --force-with-lease "https://$GIT_USERNAME:$GIT_PASSWORD@github.com/Garvit-singhal-04/git-repo.git" "$SOURCE_BRANCH"
         ;;
 
@@ -391,7 +402,8 @@ Finished: SUCCESS
 ### Screenshot
 
 ```markdown
-![Test 1 - List Branches](screenshots/01-list-branches.png)
+<img width="580" height="305" alt="image" src="https://github.com/user-attachments/assets/787cbb26-b46e-43f1-af79-7fa38ea4ca4e" />
+
 ```
 
 ---
@@ -402,7 +414,7 @@ Finished: SUCCESS
 
 ```text
 OPERATION      = create
-SOURCE_BRANCH  = jenkins-create-test
+SOURCE_BRANCH  = jenkins-create-test12
 TARGET_BRANCH  = main
 ```
 
@@ -439,7 +451,9 @@ Check the GitHub repository and confirm that `jenkins-create-test` exists.
 ### Screenshot
 
 ```markdown
-![Test 2 - Create Branch](screenshots/02-create-branch.png)
+<img width="791" height="268" alt="image" src="https://github.com/user-attachments/assets/c293d06d-c143-42c5-adb1-9bf4ddaf629a" />
+<img width="1275" height="112" alt="image" src="https://github.com/user-attachments/assets/2c89594a-f514-4ed5-b581-ce4a824584d4" />
+
 ```
 
 ---
@@ -451,7 +465,7 @@ First create a separate test branch and add at least one commit to it.
 Example branch:
 
 ```text
-jenkins-merge-test
+jenkins-git-test
 ```
 
 Then run the Jenkins job.
@@ -460,23 +474,10 @@ Then run the Jenkins job.
 
 ```text
 OPERATION      = merge
-SOURCE_BRANCH  = jenkins-merge-test
+SOURCE_BRANCH  = git-merge-test
 TARGET_BRANCH  = main
 ```
 
-### Expected behavior
-
-Jenkins:
-
-1. Checks out `main`
-2. Merges `jenkins-merge-test`
-3. Pushes the updated `main` branch
-
-Expected final status:
-
-```text
-Finished: SUCCESS
-```
 
 ### Verification
 
@@ -485,7 +486,9 @@ Check the `main` branch on GitHub and confirm that the changes from the source b
 ### Screenshot
 
 ```markdown
-![Test 3 - Merge Branch](screenshots/03-merge-branch.png)
+<img width="1197" height="230" alt="image" src="https://github.com/user-attachments/assets/43be28f8-bec4-4222-9574-64c58d8eee76" />
+<img width="707" height="412" alt="image" src="https://github.com/user-attachments/assets/322d2dcb-769a-464f-bd70-25a210fc663c" />
+
 ```
 
 ---
@@ -510,31 +513,11 @@ SOURCE_BRANCH  = jenkins-rebase-test
 TARGET_BRANCH  = main
 ```
 
-### Expected behavior
-
-Jenkins:
-
-1. Checks out the source branch
-2. Fetches the latest remote branches
-3. Rebases the source branch onto `origin/main`
-4. Pushes the rebased branch
-
-Expected console output includes:
-
-```text
-Successfully rebased and updated
-```
-
-Expected final status:
-
-```text
-Finished: SUCCESS
-```
-
 ### Screenshot
 
 ```markdown
-![Test 4 - Rebase Branch](screenshots/04-rebase-branch.png)
+<img width="751" height="195" alt="image" src="https://github.com/user-attachments/assets/ed65d16e-996d-4285-a92f-6f486ceb1005" />
+
 ```
 
 ---
@@ -551,75 +534,17 @@ SOURCE_BRANCH  = jenkins-create-test
 TARGET_BRANCH  = main
 ```
 
-`TARGET_BRANCH` is ignored by the `delete` operation.
-
-### Expected behavior
-
-Jenkins deletes the branch from the GitHub remote repository.
-
-Expected console output contains:
-
-```text
-[deleted]
-```
-
 Expected final status:
 
 ```text
 Finished: SUCCESS
 ```
 
-### Verification
-
-Check the GitHub repository and confirm that `jenkins-create-test` no longer exists.
-
 ### Screenshot
 
 ```markdown
-![Test 5 - Delete Branch](screenshots/05-delete-branch.png)
-```
+<img width="820" height="190" alt="image" src="https://github.com/user-attachments/assets/206055b5-c410-42f9-bd96-af9b3d26b047" />
 
----
-
-## Test 6 — Invalid Operation / Failure Handling
-
-This test verifies Jenkins failure handling and the configured Slack and Email notifications.
-
-### Parameters
-
-```text
-OPERATION      = invalid
-SOURCE_BRANCH  = test
-TARGET_BRANCH  = main
-```
-
-### Expected behavior
-
-The script enters the default case:
-
-```bash
-echo "Invalid operation"
-exit 1
-```
-
-Jenkins should mark the build as failed.
-
-Expected console output:
-
-```text
-Invalid operation
-```
-
-and:
-
-```text
-Finished: FAILURE
-```
-
-### Screenshot
-
-```markdown
-![Test 6 - Jenkins Failure](screenshots/06-jenkins-failure.png)
 ```
 
 ---
@@ -635,7 +560,8 @@ A Jenkins failure notification should appear in the configured Slack channel.
 ### Screenshot
 
 ```markdown
-![Test 7 - Slack Failure Notification](screenshots/07-slack-failure.png)
+<img width="822" height="132" alt="image" src="https://github.com/user-attachments/assets/1a4e5642-0f39-4c4d-86e3-810bce37348a" />
+
 ```
 
 ---
@@ -651,7 +577,8 @@ The configured Gmail recipient should receive a Jenkins build failure email.
 ### Screenshot
 
 ```markdown
-![Test 8 - Email Failure Notification](screenshots/08-email-failure.png)
+<img width="850" height="757" alt="image" src="https://github.com/user-attachments/assets/10fc9827-a590-40c7-94e8-576d1e6517a9" />
+
 ```
 
 ---
